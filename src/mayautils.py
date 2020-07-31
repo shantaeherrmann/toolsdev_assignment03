@@ -19,17 +19,16 @@ from shiboken2 import wrapInstance
 
 class SceneFile(object):
     """Class used to to represent a DCC software scene file
-
     The class will be a convenient object that we can use to manipulate our
     scene files. Examples features include the ability to predefine our naming
     conventions and automatically increment our versions.
     """
 
     def __init__(self, length='120'):
-        self.length = QLineEdit(self)
+        self.length = length
 
     def create_turntable(self):
-         """Automatically creates 360 degree turntable with lights relative to object size"""
+        """Automatically creates 360 degree turntable with lights relative to object size"""
         # Creates object selection which selects current object in panel view
         objectSelection = cmds.ls(sl=True)
         bBox = cmds.exactWorldBoundingBox(objectSelection)
